@@ -7,15 +7,15 @@ export default function Home() {
     const [files, setFiles] = useState([]);
 
     useEffect(() => {
-        fetch("https://your-backend-url/posts")
+        fetch("https://earnest-solace.vercel.app/posts")
             .then(res => res.json())
             .then(data => setPosts(data));
 
-        fetch("https://your-backend-url/files")
+        fetch("https://earnest-solace.vercel.app/files")
             .then(res => res.json())
             .then(data => setFiles(data));
 
-        const ws = new WebSocket("wss://your-backend-url/chat");
+        const ws = new WebSocket("wss:earnest-solace.vercel.app/chat");
         ws.onmessage = (event) => console.log("Chat message:", event.data);
         setSocket(ws);
     }, []);
